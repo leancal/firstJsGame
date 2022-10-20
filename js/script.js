@@ -7,6 +7,7 @@ const playerImage = new Image();
 playerImage.src = "/assets/img/shadow_dog.png";
 const spriteWidth = 575;
 const spriteHeight = 523;
+let playerState = "run";
 
 let gameFrame = 0;
 const staggerFrames = 4;
@@ -17,7 +18,7 @@ const animationStates = [
     { name: "fall", frames: 3, },
     { name: "run", frames: 8, },
     { name: "dizzy", frames: 10, },
-    { name: "sit", frames: 5, },
+    { name: "sit", frames: 4, },
     { name: "roll", frames: 7, },
     { name: "bite", frames: 7, },
     { name: "ko", frames: 12, },
@@ -38,9 +39,9 @@ animationStates.forEach((state, index) => {
 
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations["dizzy"].loc.length;
+  let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations[playerState].loc.length;
   let frameX = spriteWidth * position;
-  let frameY = spriteAnimations["dizzy"].loc[position].y;
+  let frameY = spriteAnimations[playerState].loc[position].y;
   ctx.drawImage(playerImage, frameX , frameY ,
     spriteWidth,
     spriteHeight,
