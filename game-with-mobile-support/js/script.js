@@ -311,7 +311,7 @@ window.addEventListener("load", function () {
     player.update(input, deltaTime, enemies);
     handleEnemies(deltaTime);
     displayStatusText(ctx);
-    if (!gameOver) requestAnimationFrame(animate);
+    if (!gameOver) requestAnimationFrame(animate );
   }
   animate(0);
 }); 
