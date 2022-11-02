@@ -63,16 +63,7 @@ export class GroundEnemy extends Enemy {
         this.speedY = 0;
         this.maxFrame = 1;
     }
-    update(){
-        this.x -= this.speed;
-        if (this.frameTimer > this.frameInterval) {
-            this.frameTimer = 0;
-            if (this.frameX < 3) this.frameX++;
-            else this.frameX = 0;
-        } else {
-            this.frameTimer += this.game.deltaTime;
-        }
-    }
+    
     
 }
 
